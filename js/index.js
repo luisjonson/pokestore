@@ -1,5 +1,6 @@
-const apiUrl = "https://pokeapi.co/api/v2/pokemon?limit=6";
+const apiUrl = "https://pokeapi.co/api/v2/pokemon?limit=3";
 const foto = "./img/Pokemon_XY_Sprites"
+const next = ''
 const cardsContainer = document.querySelector("#cards");
 let data = [];
 
@@ -26,7 +27,7 @@ function renderCard(card, cont) {
   <div class="card-body">
   <h6>
     <h5 class="card-title">${card.name} </h5>
-    <h5 class="card-title">200,00</h5>
+    <h5 class="card-title"> R$ 200,00</h5>
     <p class="card-text">
       Tipo: 
     </p>
@@ -36,14 +37,12 @@ function renderCard(card, cont) {
   cardsContainer.appendChild(div);
 }
 
+
+
 async function main() {
   data = await fetchCards();
 
   renderCards(data.results, data.cont);
-
-
-
-
 }
 
 main();
